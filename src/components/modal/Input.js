@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Typography, FormControl, Paper} from "@mui/material";
+import {Typography, Paper} from "@mui/material";
 
 const Modal = ({handleCloseModal, list, addList}) => {
 

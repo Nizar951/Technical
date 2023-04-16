@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Modal from '../components/modal/Input.js';
+import Items from '../components/Items.js';
 
 const Dasboard = () => {
 
@@ -77,6 +78,10 @@ const Dasboard = () => {
   const [list,setList] = useState([])
   const [modal,setModal] = useState(false)
 
+  const clear = () => {
+    setList([])
+  }
+
   const handleCloseModal = () => {
     setModal(false);
   }
@@ -102,7 +107,7 @@ const Dasboard = () => {
                 : (
                 <Button variant='primary' onClick={()=>setModal(true)}>Add New</Button>
                 )}
-                <Button variant='cancel' onClick={setList([])}>Clear</Button>
+                <Button variant='cancel'onClick={clear}>Clear</Button>
               </ThemeProvider>
             </Stack>
             </Grid>
@@ -113,11 +118,15 @@ const Dasboard = () => {
             :
             <></>
           }
-          { list.length != 0 ? (
-                <></>
+          { list.length !== 0 ? 
+            list.map((isi) => {
+            return(
+              <Items isi={isi.text} />
             )
-            :(<>
-                <Grid item xs={2.5}>
+             })
+            : (
+            <>
+            <Grid item xs={2.5}>
             </Grid>
             <Grid item xs={8.5}>
                 <Paper sx={{paddingY: "50px", 
